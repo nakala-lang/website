@@ -7,7 +7,7 @@ export default function Home({ interpreter }) {
   }, []);
 
   return (
-    <div>
+    <div className="px-10">
       Home Page
     </div>
   )

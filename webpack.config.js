@@ -1,9 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path')
+const path = require('path');
+const { abort } = require('process');
+
 module.exports = {
   entry: "./src/index.js",
   output: {
-    filename: 'bundle.[hash].js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
   mode: 'development',
   module: {
@@ -17,19 +20,7 @@ module.exports = {
       // Second Rule
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localsConvention: 'camelCase',
-              sourceMap: true
-            }
-          }
-        ]
+        use: ['style-loader', 'css-loader', 'postcss-loader']
       }
     ]
   },
