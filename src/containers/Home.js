@@ -1,17 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import Editor from './../components/Editor';
 
-export default function Home({ interpreter }) {
-
-  useEffect(() => {
-    console.log(interpreter("print(5+5);"));
-  }, []);
+export default function Home() {
 
   return (
-    <div className="mt-12">
-      <img src="https://github.com/nakala-lang/nakala/raw/main/assets/new_logo.png" className="max-w-xs" />
-      <div className="pt-8" />
-      
-      <h1 className="text-3xl">Nakala</h1>
+    <div className="mt-4 w-full">
+      <img src="https://github.com/nakala-lang/nakala/raw/main/assets/new_logo.png" className="max-w-xs mx-auto" />
+
+      <div className="pt-4" />
+      <Editor />
     </div>
   )
 }

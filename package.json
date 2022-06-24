@@ -3,9 +3,11 @@
     "serve": "webpack-dev-server"
   },
   "dependencies": {
-    "@nakala-lang/nakjs": "^0.1.0",
+    "@nakala-lang/nakjs": "^0.1.1",
+    "prismjs": "^1.28.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-simple-code-editor": "^0.11.2"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
