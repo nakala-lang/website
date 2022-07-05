@@ -24,7 +24,6 @@ export default function MyEditor() {
     let s = "";
 
     let i = 0;
-    //print("size of list is " + len(this.inner));
     until i == len(this.inner) {
       if this.inner[i] == 0 {
         s = s + " ";
@@ -39,7 +38,7 @@ export default function MyEditor() {
   }
 }
 
-let LIST_SIZE = 100;
+let LIST_SIZE = 50;
 
 let list = List(LIST_SIZE);
 list.set(LIST_SIZE - 2, 1);
@@ -50,9 +49,7 @@ until iter == LIST_SIZE {
   print(list.str());
   iter = iter + 1;
   
-  //print("creating new list");
   let new_list = List(LIST_SIZE);
-  //print("finished creating new list");
 
   let idx = 0;
   until idx == LIST_SIZE {
