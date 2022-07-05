@@ -7,107 +7,108 @@ import 'prismjs/themes/prism-coy.min.css'; //Example style, you can use another
 
 export default function MyEditor() {
   const [code, setCode] = useState(
-`class List {
-  constructor(size: int) {
-    this.inner = [0; size];
-  }
 
-  set(index: int, value: int) {
-    this.inner[index] = value;
-  }
-
-  get(index: int) -> int {
-    ret this.inner[index];
-  }
-
-  str() -> string {
-    let s = "";
-
-    let i = 0;
-    until i == len(this.inner) {
-      if this.inner[i] == 0 {
-        s = s + " ";
-      } else {
-        s = s + "X";
-      }
-
-      i = i + 1;
-    }
-
-    ret s;
-  }
-}
-
-let LIST_SIZE = 50;
-
-let list = List(LIST_SIZE);
-list.set(LIST_SIZE - 2, 1);
-list.set(LIST_SIZE - 1, 1);
-
-let iter = 0;
-until iter == LIST_SIZE {
-  print(list.str());
-  iter = iter + 1;
-  
-  let new_list = List(LIST_SIZE);
-
-  let idx = 0;
-  until idx == LIST_SIZE {
-    let prev_val = 0;
-    if idx != 0 {
-      prev_val = list.get(idx - 1);
-    }
-
-    let curr_val = list.get(idx);
-
-    let next_val = 0;
-    if idx != LIST_SIZE - 1 {
-      next_val = list.get(idx + 1);
-    }
-
-    let as_str = "" + prev_val + curr_val + next_val;
-    let new_val = 0;
-    if as_str == "111" {
-      new_val = 0;
-    } else if as_str == "110" {
-      new_val = 1;
-    } else if as_str == "101" {
-      new_val = 1;
-    } else if as_str == "100" {
-      new_val = 0;
-    } else if as_str == "011" {
-      new_val = 1;
-    } else if as_str == "010" {
-      new_val = 1;
-    } else if as_str == "001" {
-      new_val = 1;
-    } else {
-      new_val = 0;
-    }
-
-    new_list.set(idx, new_val);
-
-    idx = idx + 1;
-  }
-
-  list = new_list;
-}`
-//func fib(n: int) -> int {
-//  if n <= 1 {
-//    ret n;
+//`class List {
+//  constructor(size: int) {
+//    this.inner = [0; size];
 //  }
-//  
-//  ret fib(n-1) + fib(n-2);
+//
+//  set(index: int, value: int) {
+//    this.inner[index] = value;
+//  }
+//
+//  get(index: int) -> int {
+//    ret this.inner[index];
+//  }
+//
+//  str() -> string {
+//    let s = "";
+//
+//    let i = 0;
+//    until i == len(this.inner) {
+//      if this.inner[i] == 0 {
+//        s = s + " ";
+//      } else {
+//        s = s + "X";
+//      }
+//
+//      i = i + 1;
+//    }
+//
+//    ret s;
+//  }
 //}
 //
-//print(fib(15));`
+//let LIST_SIZE = 50;
+//
+//let list = List(LIST_SIZE);
+//list.set(LIST_SIZE - 2, 1);
+//list.set(LIST_SIZE - 1, 1);
+//
+//let iter = 0;
+//until iter == LIST_SIZE {
+//  print(list.str());
+//  iter = iter + 1;
+//  
+//  let new_list = List(LIST_SIZE);
+//
+//  let idx = 0;
+//  until idx == LIST_SIZE {
+//    let prev_val = 0;
+//    if idx != 0 {
+//      prev_val = list.get(idx - 1);
+//    }
+//
+//    let curr_val = list.get(idx);
+//
+//    let next_val = 0;
+//    if idx != LIST_SIZE - 1 {
+//      next_val = list.get(idx + 1);
+//    }
+//
+//    let as_str = "" + prev_val + curr_val + next_val;
+//    let new_val = 0;
+//    if as_str == "111" {
+//      new_val = 0;
+//    } else if as_str == "110" {
+//      new_val = 1;
+//    } else if as_str == "101" {
+//      new_val = 1;
+//    } else if as_str == "100" {
+//      new_val = 0;
+//    } else if as_str == "011" {
+//      new_val = 1;
+//    } else if as_str == "010" {
+//      new_val = 1;
+//    } else if as_str == "001" {
+//      new_val = 1;
+//    } else {
+//      new_val = 0;
+//    }
+//
+//    new_list.set(idx, new_val);
+//
+//    idx = idx + 1;
+//  }
+//
+//  list = new_list;
+//}`
+`func fib(n: int) -> int {
+  if n <= 1 {
+    ret n;
+  }
+  
+  ret fib(n-1) + fib(n-2);
+}
+
+print(fib(15));`
   );
   const [isRunning, setIsRunning] = useState(false);
   const [result, setResult] = useState("");
 
   const runCode = async () => {
     try {
-      let js = await import("@nakala-lang/nakjs");
+      let js = await import("./../../../node_modules/@nakala-lang/nakjs");
       let res = js.wasm_interpret(code);
       setResult(res);
       console.log(res);
@@ -129,7 +130,7 @@ until iter == LIST_SIZE {
         style={{
           fontFamily: '"Fira code", "Fira Mono", monospace',
           backgroundColor: "rgba(0,0,0,0.05)",
-          fontSize: 12,
+          fontSize: 16,
         }}
       />
       <div className="mt-1" />
@@ -138,7 +139,7 @@ until iter == LIST_SIZE {
         setTimeout(runCode, 100);
       }}>Run</button>
       <div className="py-2">Result:</div>
-      <textarea className="h-64 w-full bg-slate-50 font-mono" value={isRunning ? "Loading..." : result} />
+      <textarea className="h-64 w-full bg-slate-50 font-mono text-sm" value={isRunning ? "Loading..." : result} />
     </div>
   );
 }
