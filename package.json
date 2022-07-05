@@ -6,7 +6,7 @@
     "deploy": "npm run clean && npm run build && gh-pages -d dist"
   },
   "dependencies": {
-    "@nakala-lang/nakjs": "^0.1.1",
+    "@nakala-lang/nakjs": "^0.2.0",
     "gh-pages": "^4.0.0",
     "prismjs": "^1.28.0",
     "react": "^18.2.0",
