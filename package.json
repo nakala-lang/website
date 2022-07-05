@@ -1,9 +1,13 @@
 {
   "scripts": {
-    "serve": "webpack-dev-server"
+    "serve": "webpack-dev-server",
+    "build": "NODE_ENV=production webpack",
+    "clean": "rm -f -R dist/",
+    "deploy": "npm run clean && npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@nakala-lang/nakjs": "^0.1.1",
+    "gh-pages": "^4.0.0",
     "prismjs": "^1.28.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
