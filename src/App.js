@@ -6,7 +6,7 @@ export function App() {
   return (
     <div className="w-screen pb-32">
       <NavBar />
-      <div className="max-w-lg flex mx-auto">
+      <div className="max-w-2xl flex mx-auto">
         <Home />
       </div>
     </div>
