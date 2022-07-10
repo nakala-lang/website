@@ -1,33 +1,39 @@
-import React from 'react';
+import React from "react";
+import { Link, useRouteMatch } from "react-router-dom";
 
-function NavBarItem({ name, link, isBold = false, isFirst = false }) {
-
-  const handleClick = (link) => {
-    if (link.startsWith("https://")) {
-      window.open(link, '_blank')
-    } else {
-      window.location = link;
-    }
-  }
+function NavBarItem({ name, link, isFirst = false, external = false }) {
+  const isActive = useRouteMatch({
+    path: link,
+    exact: true,
+  });
 
   return (
-    <span onClick={() => handleClick(link)} className={`${isBold ? 'font-bold' : ''} ${isFirst ? '' : 'px-2'} hover:underline hover:cursor-pointer`}>{name}</span>
+    <span
+      className={`${isFirst ? '' : 'px-2'} hover:underline ${isActive ? 'font-bold' : ''}`}
+      onClick={() => {
+        if (external) window.open(link, "_blank");
+      }}
+    >
+      <Link to={link}>{name}</Link>
+    </span>
   );
 }
 
 export default function NavBar() {
   const links = [
-    { name: ".nak", isBold: true, isFirst: true, link: "/" },
-    { name: "docs", link: "/docs" },
-    { name: "about", link: "/about" },
-    { name: "github", link: "https://github.com/nakala-lang" }
+    { name: ".nak ", link: "/website", isFirst: true },
+    { name: "docs", link: "/website/docs" },
+    { name: "about", link: "/website/about" },
+    { name: "github", link: "https://github.com/nakala-lang", external: true },
   ];
 
   return (
     <div className="w-screen">
-      <div className="max-w-lg flex mx-auto pt-2 text-lg">
-        {links.map((item) => <NavBarItem {...item} />)}
+      <div className="max-w-2xl flex mx-auto pt-2 text-lg">
+        {links.map((item) => (
+          <NavBarItem {...item} />
+        ))}
       </div>
     </div>
-  )
+  );
 }
