@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nakala-lang/nakjs": "^0.2.0",
+    "@types/prismjs": "^1.26.0",
     "next": "12.2.5",
+    "prismjs": "^1.29.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-simple-code-editor": "^0.13.0"
   },
   "devDependencies": {
     "@types/node": "18.7.13",
