@@ -9,7 +9,12 @@ const nextConfig = {
     config.experiments = {asyncWebAssembly: true, layers: true};
     return config;
   },
-  assetPrefix: isProd ? '/website/' : ''
+  experimental: {
+    images: {
+      unoptimized: true
+    }
+  },
+  assetPrefix: isProd ? '/website/' : '',
 }
 
 module.exports = nextConfig
