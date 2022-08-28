@@ -12,6 +12,7 @@
   "dependencies": {
     "@nakala-lang/nakjs": "^0.2.0",
     "@types/prismjs": "^1.26.0",
+    "gray-matter": "^4.0.3",
     "next": "12.2.5",
     "prismjs": "^1.29.0",
     "react": "18.2.0",
