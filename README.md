@@ -11,6 +11,6 @@ npm install
 npm run serve
 ```
 
-#### Production
+#### Production / Deployment
 
-TODO
+The application is automatically built and deployed via the Deploy github workflow.
