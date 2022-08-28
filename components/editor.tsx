@@ -155,15 +155,16 @@ print(10);`);
 
   useEffect(() => {
     runCode();
-  }, [code]);
+  }, [code, runCode]);
 
   return (
     <div>
       <div>
         <p className="text-lg">Examples:</p>
         <div className="flex gap-2 mb-4">
-          {examples.map((item) => (
+          {examples.map((item, index) => (
             <button
+              key={index}
               className="px-2 py-1 bg-gray-300 hover:bg-opacity-50"
               onClick={() => setCode(item.code)}
             >
@@ -252,7 +253,6 @@ Prism.languages.insertBefore("javascript", "keyword", {
   regex: {
     pattern: RegExp(
       // lookbehind
-      // eslint-disable-next-line regexp/no-dupe-characters-character-class
       /((?:^|[^$\w\xA0-\uFFFF."'\])\s]|\b(?:return|yield))\s*)/.source +
         // Regex pattern:
         // There are 2 regex patterns here. The RegExp set notation proposal added support for nested character
