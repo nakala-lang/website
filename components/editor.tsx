@@ -146,7 +146,6 @@ print(10);`);
       setResult(res);
       console.log(res);
     } catch (err) {
-      window.alert("Failed to import interpreter");
       console.error(err);
     } finally {
       setIsRunning(false);
