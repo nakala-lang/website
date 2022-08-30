@@ -131,6 +131,106 @@ until iter == LIST_SIZE {
   list = new_list;
 }`,
   },
+  {
+    title: "First-class Functions (aka Closures)",
+    code: `// Notice how nakala supports typechecking for functions via function types!
+func callFuncWith10(f: (int) -> int) {
+  ret f(10);
+}
+
+func add5(x: int) -> int {
+  ret x + 5;
+}
+
+print(callFuncWith10(add5));`,
+  },
+  {
+    title: "First-class Classes",
+    code: `// My personal favorite feature of nakala is first-class classes.
+// This means you can pass around not only class instances, but also
+// **class definitions** (!) as values.
+
+class MultiplierTask {
+  constructor(factor: int) {
+    this.factor = factor; 
+  }
+  
+  pipe(v: int) -> int {
+    ret this.factor * v;
+  }
+}
+
+func pipeline(input: int, task_args: [int], task) -> int {
+  let i = 0;
+  let bound = len(task_args);
+    
+  let curr = input;
+  until i == bound {
+    let modifier = task_args[i];
+    curr = task(modifier).pipe(curr);
+    i = i + 1;
+  }
+  
+  ret curr;
+}
+
+// Notice how we aren't passing an _instance_ of MultiplierTask, we are 
+// literally passing the _definition_ of MultiplierTask, gets
+// constructed later.
+let res = pipeline(1, [1,2,3,4,5], MultiplierTask);
+print(res);`,
+  },
+  {
+    title: "Static Type Checking",
+    code: `func myFunc(a: int, b: int) -> int {
+  ret a + b;
+}
+
+class Consumer {
+  // This is fine
+  consume(callee: (int, int) -> int, a: int, b: int) -> int {
+    ret callee(a,b);
+  }
+  
+  // This is not fine
+  consume(c: (int, int) -> string, a: int, b: int) -> int {
+    ret c(a,b);
+  }
+}`,
+  },
+  {
+    title: "Enums",
+    code: `enum Type { String, Boolean, Number }
+
+class JsonValue {
+  constructor(v: any, ty: Type) {
+    this.v = v;
+    this.ty = ty;
+  }
+  
+  str() -> string {
+    if this.ty == Type.String {
+      ret "'" + this.v + "'";
+    }
+    
+    ret this.v;
+  }
+}
+
+let vals = [
+  JsonValue(false, Type.Boolean), 
+  JsonValue("hi", Type.String),
+  JsonValue(1.5, Type.Number)
+];
+
+let i = 0;
+until i == len(vals) {
+  let t = vals[i];
+  print(t.str());
+  
+  i = i + 1;
+}`,
+  },
 ];
 
 export default function Editor() {
@@ -160,7 +260,7 @@ print(10);`);
     <div>
       <div>
         <p className="text-lg">Examples:</p>
-        <div className="flex gap-2 mb-4">
+        <div className="flex flex-wrap gap-2 mb-4">
           {examples.map((item, index) => (
             <button
               key={index}
