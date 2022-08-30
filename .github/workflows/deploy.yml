@@ -21,16 +21,19 @@ jobs:
           node-version: 'lts/*'
           cache: 'npm'
 
-      - name: Build
+      - name: Install deps
         run: |
           npm i
+
+      - name: Build and Export
+        env:
+          NODE_ENV: 'production'
+        run: |
           npm run build
           npm run export
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        env:
-          NODE_ENV: 'production'
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./out
