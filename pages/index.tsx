@@ -47,19 +47,41 @@ const Home: NextPage = () => {
           <li>Pretty error messages</li>
         </ul>
 
-        <h3 className="font-righteous font-light -mt-1 text-3xl">Planned Features</h3>
+        <h3 className="font-righteous font-light -mt-1 text-3xl">
+          Planned Features
+        </h3>
         <ul>
           <li>Multi-file support via Modules</li>
+          <li>Standard library</li>
           <li>FFI support</li>
           <li>Compiler (probably to C++)</li>
+          <li>Self-hosted</li>
         </ul>
 
-        <h3 className="font-righteous font-light -mt-1 text-3xl">Contributing</h3>
+        <h3 className="font-righteous font-light -mt-1 text-3xl">
+          Contributing
+        </h3>
         <p>
           I am always welcoming PRs and would love to work on the project with
           other people if they are interested. There are no rules, and I will
           accept any PR as long as it aligns with the projects core values as
           described above.
+        </p>
+
+        <div className="h-1 bg-gray-300 w-full my-6" />
+
+        <h3 className="font-righteous font-light -mt-1 text-3xl">History</h3>
+        <p>
+          Nakala started as a programming language that I built based on <a href="https://arzg.github.io/lang/" className="text-blue-500" target="_blank">arzg's
+          Eldiro blog posts</a>. The core architecture (especially the parser) was
+          practically identical to Eldiro, hence the name of the project: nakala
+          (Punjabi for mimic). If you haven't read through his blog posts, I
+          highly recommend you do because it is an unmatched learning resource.
+          <br /><br/>
+          I ended up scrapping the entire language and codebase for
+          something I built from the ground up after studying more. However, I
+          decided to keep the name as a nod to arzg for lighting a spark in me
+          that put me on a journey of learning constantly.
         </p>
       </article>
     </div>
