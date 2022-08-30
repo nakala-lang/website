@@ -27,10 +27,10 @@ const Home: NextPage = () => {
           <ol>
             <li>The syntax should feel familiar, while remaining unique</li>
             <li>
-              Nakala doesn't try to do anything really hard, as I want to make
+              {`Nakala doesn't try to do anything really hard, as I want to make
               working on this project fun and not another job that ends up
               burning me out. That doesn't mean it doesn't have cool ideas and
-              features though!
+              features though!`}
             </li>
           </ol>
         </div>
@@ -72,16 +72,16 @@ const Home: NextPage = () => {
 
         <h3 className="font-righteous font-light -mt-1 text-3xl">History</h3>
         <p>
-          Nakala started as a programming language that I built based on <a href="https://arzg.github.io/lang/" className="text-blue-500" target="_blank">arzg's
+          {`Nakala started as a programming language that I built based on <a href="https://arzg.github.io/lang/" className="text-blue-500" target="_blank">arzg's
           Eldiro blog posts</a>. The core architecture (especially the parser) was
           practically identical to Eldiro, hence the name of the project: nakala
           (Punjabi for mimic). If you haven't read through his blog posts, I
-          highly recommend you do because it is an unmatched learning resource.
+          highly recommend you do because it is an unmatched learning resource.`}
           <br /><br/>
-          I ended up scrapping the entire language and codebase for
+          {`I ended up scrapping the entire language and codebase for
           something I built from the ground up after studying more. However, I
           decided to keep the name as a nod to arzg for lighting a spark in me
-          that put me on a journey of learning constantly.
+          that put me on a journey of learning constantly.`}
         </p>
       </article>
     </div>

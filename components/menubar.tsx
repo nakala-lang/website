@@ -22,7 +22,7 @@ export default function MenuBar() {
       <Link href="/playground">
         <p className="hover:underline hover:cursor-pointer">playground</p>
       </Link>
-      <a target="_blank" href="https://github.com/nakala-lang">
+      <a target="_blank" href="https://github.com/nakala-lang" rel="noreferrer">
         <p className="hover:underline hover:cursor-pointer">contribute</p>
       </a>
     </div>
