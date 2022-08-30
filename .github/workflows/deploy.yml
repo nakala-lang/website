@@ -12,9 +12,6 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     
-    env:
-      NODE_ENV: 'production'
-
     steps:
       - uses: actions/checkout@v3
 
@@ -32,6 +29,8 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        env:
+          NODE_ENV: 'production'
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./out
