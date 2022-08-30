@@ -20,21 +20,47 @@ const Home: NextPage = () => {
       </section>
 
       <article className="prose mt-4">
-        <h3 className="font-righteous text-3xl">Features</h3>
+        <h3 className="font-righteous font-light text-3xl">Philosophy</h3>
+        <div>
+          <p>Nakala only has two core values:</p>
+
+          <ol>
+            <li>The syntax should feel familiar, while remaining unique</li>
+            <li>
+              Nakala doesn't try to do anything really hard, as I want to make
+              working on this project fun and not another job that ends up
+              burning me out. That doesn't mean it doesn't have cool ideas and
+              features though!
+            </li>
+          </ol>
+        </div>
+
+        <h3 className="font-righteous font-light text-3xl -mt-1">Features</h3>
         <ul>
           <li>First class functions</li>
           <li>First class classes</li>
           <li>Static type checking</li>
           <li>High performance interpreter (written in Rust 🦀)</li>
-          <li>Full-featured javascript interpeter via WASM (try the Playground!)</li>
+          <li>
+            Full-featured javascript interpeter via WASM (try the Playground!)
+          </li>
           <li>Pretty error messages</li>
         </ul>
-        <h3 className="font-righteous -mt-1 text-3xl">Planned Features</h3>
+
+        <h3 className="font-righteous font-light -mt-1 text-3xl">Planned Features</h3>
         <ul>
           <li>Multi-file support via Modules</li>
           <li>FFI support</li>
           <li>Compiler (probably to C++)</li>
         </ul>
+
+        <h3 className="font-righteous font-light -mt-1 text-3xl">Contributing</h3>
+        <p>
+          I am always welcoming PRs and would love to work on the project with
+          other people if they are interested. There are no rules, and I will
+          accept any PR as long as it aligns with the projects core values as
+          described above.
+        </p>
       </article>
     </div>
   );

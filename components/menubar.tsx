@@ -1,21 +1,30 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React, { useState } from "react";
 
-const routes = [{
-  url: "/",
-  title: "Home"
-},
-{
-  url: "/playground",
-  title: "Playground"
-}]
+const routes = [
+  {
+    url: "/",
+    title: "Home",
+  },
+  {
+    url: "/playground",
+    title: "Playground",
+  },
+];
 
 export default function MenuBar() {
   return (
-    <div className="w-full flex gap-4 font-righteous underline">
+    <div className="w-full flex gap-4 font-righteous">
       <div className="grow" />
-      <Link className="font-bold" href="/">Home</Link>
-      <Link href="/playground">Playground</Link>
+      <Link href="/">
+        <p className="hover:underline hover:cursor-pointer">home</p>
+      </Link>
+      <Link href="/playground">
+        <p className="hover:underline hover:cursor-pointer">playground</p>
+      </Link>
+      <a target="_blank" href="https://github.com/nakala-lang">
+        <p className="hover:underline hover:cursor-pointer">contribute</p>
+      </a>
     </div>
-  )
+  );
 }
