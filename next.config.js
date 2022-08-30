@@ -14,7 +14,8 @@ const nextConfig = {
       unoptimized: true
     }
   },
-  assetPrefix: isProd ? '/website/' : '',
+  basePath: isProd ? '/website' : '',
+  assetPrefix: isProd ? '/website' : '',
 }
 
 module.exports = nextConfig
