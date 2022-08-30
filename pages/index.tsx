@@ -72,8 +72,9 @@ const Home: NextPage = () => {
 
         <h3 className="font-righteous font-light -mt-1 text-3xl">History</h3>
         <p>
-          {`Nakala started as a programming language that I built based on <a href="https://arzg.github.io/lang/" className="text-blue-500" target="_blank">arzg's
-          Eldiro blog posts</a>. The core architecture (especially the parser) was
+          {`Nakala started as a programming language that I built based on `}
+          <a href="https://arzg.github.io/lang/" className="text-blue-500" target="_blank">{"arzg's Eldiro blog posts"}</a>.
+          {`The core architecture (especially the parser) was
           practically identical to Eldiro, hence the name of the project: nakala
           (Punjabi for mimic). If you haven't read through his blog posts, I
           highly recommend you do because it is an unmatched learning resource.`}
